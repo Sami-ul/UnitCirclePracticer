@@ -33,9 +33,9 @@ class unitCircle:
         ans: str = ""
         if quizType == "degtorad":
             quiz += "Convert the following degrees to radians and radians to degrees\n"
+            indList: list = []
             for i in range(numQuestions):
                 ind: int = randint(0, len(self.radToDeg)-1)
-                indList: list = []
                 if ind in indList:
                     while ind in indList:
                         ind = randint(0, len(self.radToDeg)-1)
@@ -46,7 +46,7 @@ class unitCircle:
                                                   [ind]) + "\n"
                     # add to answer key
                     ans += str(i+1) + ". " + \
-                        str(list(self.radToDeg.values())[ind])
+                        str(list(self.radToDeg.values())[ind]) + "\n"
                 else:
                     # add to quiz
                     quiz += str(i+1) + ". " + str(list(self.radToDeg.values())
@@ -56,9 +56,9 @@ class unitCircle:
                         str(list(self.radToDeg)[ind]) + "\n"
         elif (quizType == "degradtocoor"):
             quiz += "Write the corresponding coordinate pair for each problem\n"
+            indList: list = []
             for i in range(10):
                 ind: int = randint(0, len(self.degCoords)-1)
-                indList: list = []
                 if ind in indList:
                     while ind in indList:
                         ind = randint(0, len(self.radToDeg)-1)
