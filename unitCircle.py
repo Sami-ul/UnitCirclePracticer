@@ -34,29 +34,37 @@ class unitCircle:
         if quizType == "degtorad":
             quiz += "Convert the following degrees to radians and radians to degrees\n"
             for i in range(numQuestions):
-                ind = randint(0, len(self.radToDeg)-1)
+                ind: int = randint(0, len(self.radToDeg)-1)
                 if (randint(0, 1) == 0):
+                    # add to quiz
                     quiz += str(i+1) + ". " + str(list(self.radToDeg)
                                                   [ind]) + "\n"
+                    # add to answer key
                     ans += str(i+1) + ". " + \
                         str(list(self.radToDeg.values())[ind])
                 else:
+                    # add to quiz
                     quiz += str(i+1) + ". " + str(list(self.radToDeg.values())
                                                   [ind]) + "\n"
+                    # add to answer key
                     ans += str(i+1) + ". " + \
                         str(list(self.radToDeg)[ind]) + "\n"
         elif (quizType == "degradtocoor"):
             quiz += "Write the corresponding coordinate pair for each problem\n"
             for i in range(10):
-                ind = randint(0, len(self.degCoords)-1)
-                if (randint(0, 1) == 0):
+                ind: int = randint(0, len(self.degCoords)-1)
+                if (randint(0, 1) == 0): # 0 means degrees to coord, 1 means radians to coord
+                    # add to quiz
                     quiz += str(i+1) + ". " + str(list(self.degCoords)
                                                   [ind]) + "\n"
+                    # add to answer key
                     ans += str(i+1) + ". " + \
                         str(list(self.degCoords.values())[ind]) + "\n"
                 else:
+                    # add to quiz
                     quiz += str(i+1) + ". " + str(list(self.radCoords)
                                                   [ind]) + "\n"
+                    # add to answer key
                     ans += str(i+1) + ". " + \
                         str(list(self.radCoords.values())[ind]) + "\n"
         return (quiz, ans)
