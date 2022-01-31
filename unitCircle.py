@@ -24,27 +24,39 @@ class unitCircle:
             "2π": Point(1, 0)
         }
 
-    def generateQuiz(self, numQuestions: int, quizType: str) -> str:
-        """Generates a string that is a quiz, quizType can be degtorad for a quiz of
-        radians to degrees or degrees to radians, or it can be degradtocoor which is
-        a quiz that asks to find the coordinate for each degree or radian."""
+    def generateQuiz(self, numQuestions: int, quizType: str) -> tuple:
+        """Returns a tuple, index 0 has the quiz, index 1 has the answers, 
+        quizType can be degtorad for a quiz of radians to degrees or degrees
+        to radians, or it can be degradtocoor which is a quiz that asks to find
+        the coordinate for each degree or radian."""
         quiz: str = ""
+        ans: str = ""
         if quizType == "degtorad":
             quiz += "Convert the following degrees to radians and radians to degrees\n"
             for i in range(numQuestions):
+                ind = randint(0, len(self.radToDeg)-1)
                 if (randint(0, 1) == 0):
                     quiz += str(i+1) + ". " + str(list(self.radToDeg)
-                                                  [randint(0, len(self.radToDeg)-1)]) + "\n"
+                                                  [ind]) + "\n"
+                    ans += str(i+1) + ". " + \
+                        str(list(self.radToDeg.values())[ind])
                 else:
                     quiz += str(i+1) + ". " + str(list(self.radToDeg.values())
-                                                  [randint(0, len(self.radToDeg)-1)]) + "\n"
+                                                  [ind]) + "\n"
+                    ans += str(i+1) + ". " + \
+                        str(list(self.radToDeg)[ind]) + "\n"
         elif (quizType == "degradtocoor"):
             quiz += "Write the corresponding coordinate pair for each problem\n"
             for i in range(10):
+                ind = randint(0, len(self.degCoords)-1)
                 if (randint(0, 1) == 0):
                     quiz += str(i+1) + ". " + str(list(self.degCoords)
-                                                  [randint(0, len(self.degCoords)-1)]) + "\n"
+                                                  [ind]) + "\n"
+                    ans += str(i+1) + ". " + \
+                        str(list(self.degCoords.values())[ind]) + "\n"
                 else:
                     quiz += str(i+1) + ". " + str(list(self.radCoords)
-                                                  [randint(0, len(self.radCoords)-1)]) + "\n"
-        return quiz
+                                                  [ind]) + "\n"
+                    ans += str(i+1) + ". " + \
+                        str(list(self.radCoords.values())[ind]) + "\n"
+        return (quiz, ans)

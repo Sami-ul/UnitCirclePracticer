@@ -2,6 +2,7 @@ from unitCircle import unitCircle
 
 circle = unitCircle()
 
-print(circle.generateQuiz(10, "degtorad"))
+quiz = circle.generateQuiz(10, "degradtocoor")
+print(quiz[0]) # quiz
 print()
-print(circle.generateQuiz(10, "degradtocoor"))
+print(quiz[1]) # key
