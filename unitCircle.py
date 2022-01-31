@@ -35,7 +35,12 @@ class unitCircle:
             quiz += "Convert the following degrees to radians and radians to degrees\n"
             for i in range(numQuestions):
                 ind: int = randint(0, len(self.radToDeg)-1)
-                if (randint(0, 1) == 0):
+                indList: list = []
+                if ind in indList:
+                    while ind in indList:
+                        ind = randint(0, len(self.radToDeg)-1)
+                indList.append(ind)
+                if randint(0, 1) == 0:
                     # add to quiz
                     quiz += str(i+1) + ". " + str(list(self.radToDeg)
                                                   [ind]) + "\n"
@@ -53,6 +58,11 @@ class unitCircle:
             quiz += "Write the corresponding coordinate pair for each problem\n"
             for i in range(10):
                 ind: int = randint(0, len(self.degCoords)-1)
+                indList: list = []
+                if ind in indList:
+                    while ind in indList:
+                        ind = randint(0, len(self.radToDeg)-1)
+                indList.append(ind)
                 if (randint(0, 1) == 0): # 0 means degrees to coord, 1 means radians to coord
                     # add to quiz
                     quiz += str(i+1) + ". " + str(list(self.degCoords)
